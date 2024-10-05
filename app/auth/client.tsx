@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
-import { GithubIcon, Loader2Icon } from 'lucide-react'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import { ChromeIcon, Loader2Icon } from 'lucide-react'
 import { HTMLAttributes, SyntheticEvent, useState } from 'react'
 
 type UserAuthFormProps = HTMLAttributes<HTMLDivElement>
@@ -53,9 +54,15 @@ export function ClientPage({ className, ...props }: UserAuthFormProps) {
 					<span className='bg-background px-2 text-muted-foreground'>Or continue with</span>
 				</div>
 			</div>
-			<Button variant='outline' type='button' disabled={isLoading}>
-				{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <GithubIcon className='mr-2 h-4 w-4' />} GitHub
-			</Button>
+			<div className='grid gap-2'>
+				<Button variant='outline' type='button' disabled={isLoading}>
+					{/* TODO: Real google icon */}
+					{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <ChromeIcon className='mr-2 h-4 w-4' />} Google
+				</Button>
+				<Button variant='outline' type='button' disabled={isLoading}>
+					{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <GitHubLogoIcon className='mr-2 h-4 w-4' />} GitHub
+				</Button>
+			</div>
 		</div>
 	)
 }
