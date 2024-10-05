@@ -1,10 +1,10 @@
 import authFeature from '@/assets/auth-feature.jpg'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { LayoutProps } from '@cgambrell/utils'
 import { CommandIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ClientPage } from './client'
 
 // TODO: Real testimonial
 const testimonial = {
@@ -12,7 +12,7 @@ const testimonial = {
 	quote: 'This library has saved me countless hours of work and helped me deliver stunning designs to my clients faster than ever before.',
 }
 
-export default function AuthenticationPage() {
+export default function AuthLayout({ children }: LayoutProps) {
 	return (
 		<div className='relative flex-col items-center justify-center grid lg:max-w-none lg:h-screen lg:grid-cols-2 lg:px-0'>
 			<Link
@@ -25,7 +25,9 @@ export default function AuthenticationPage() {
 					<Image className='w-full h-full object-cover' src={authFeature} alt='auth-feature' />
 				</div>
 				<div className='relative z-20 flex items-center text-lg font-medium'>
+					{/* TODO: Correct icon */}
 					<CommandIcon className='mr-2 h-6 w-6' />
+					{/* TODO: Correct app name */}
 					<span>Acme Inc</span>
 				</div>
 				<div className='relative z-20 mt-auto'>
@@ -35,26 +37,7 @@ export default function AuthenticationPage() {
 					</blockquote>
 				</div>
 			</div>
-			<div className='px-4 pt-24 lg:p-8'>
-				<div className='mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]'>
-					<div className='flex flex-col space-y-2 text-center'>
-						<h1 className='text-2xl font-semibold tracking-tight'>Create an account</h1>
-						<p className='text-sm text-muted-foreground'>Enter your email below to create your account</p>
-					</div>
-					<ClientPage />
-					<p className='px-8 text-center text-sm text-muted-foreground'>
-						By clicking continue, you agree to our{' '}
-						<Link className='underline underline-offset-4 hover:text-primary' href='/terms'>
-							Terms of Service
-						</Link>{' '}
-						and{' '}
-						<Link className='underline underline-offset-4 hover:text-primary' href='/privacy'>
-							Privacy Policy
-						</Link>
-						.
-					</p>
-				</div>
-			</div>
+			<div className='px-4 pt-24 lg:p-8'>{children}</div>
 		</div>
 	)
 }
