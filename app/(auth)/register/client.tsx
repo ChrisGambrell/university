@@ -10,22 +10,20 @@ export function ClientPage() {
 
 	return (
 		<div className='grid gap-6'>
-			<form action={action}>
-				<div className='grid gap-y-4 gap-x-2 grid-cols-2'>
-					<FormInput label='First name' name='firstName' placeholder='Max' error={state?.errors.firstName} />
-					<FormInput label='Last name' name='lastName' placeholder='Robinson' error={state?.errors.lastName} />
-					<FormInput
-						className='col-span-full'
-						label='Email address'
-						name='email'
-						placeholder='name@example.com'
-						type='email'
-						error={state?.errors.email}
-					/>
-					<FormInput label='Password' name='password' type='password' error={state?.errors.password} />
-					<FormInput label='Confirm password' name='confirmPassword' type='password' error={state?.errors.confirmPassword} />
-					<ActionButton className='col-span-full'>Sign In with Email</ActionButton>
-				</div>
+			<form action={action} className='grid gap-y-4 gap-x-2 grid-cols-2'>
+				<FormInput label='First name' name='firstName' placeholder='Max' error={state?.errors.firstName} />
+				<FormInput label='Last name' name='lastName' placeholder='Robinson' error={state?.errors.lastName} />
+				<FormInput
+					className='col-span-full'
+					label='Email address'
+					name='email'
+					placeholder='name@example.com'
+					type='email'
+					error={state?.errors.email}
+				/>
+				<FormInput label='Password' name='password' type='password' error={state?.errors.password} />
+				<FormInput label='Confirm password' name='confirmPassword' type='password' error={state?.errors.confirmPassword} />
+				<ActionButton className='col-span-full'>Sign In with Email</ActionButton>
 			</form>
 			<div className='relative'>
 				<div className='absolute inset-0 flex items-center'>
