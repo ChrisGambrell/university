@@ -1,49 +1,30 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { cn } from '@/lib/utils'
-import { GitHubLogoIcon } from '@radix-ui/react-icons'
-import { ChromeIcon, Loader2Icon } from 'lucide-react'
-import { HTMLAttributes, SyntheticEvent, useState } from 'react'
+import { register } from '@/actions/auth'
+import { ActionButton } from '@/components/action-button'
+import { FormInput } from '@/components/form-input'
+import { useFormState } from 'react-dom'
 
-type UserAuthFormProps = HTMLAttributes<HTMLDivElement>
-
-export function ClientPage({ className, ...props }: UserAuthFormProps) {
-	const [isLoading, setIsLoading] = useState<boolean>(false)
-
-	async function onSubmit(event: SyntheticEvent) {
-		event.preventDefault()
-		setIsLoading(true)
-
-		setTimeout(() => {
-			setIsLoading(false)
-		}, 3000)
-	}
+export function ClientPage() {
+	const [state, action] = useFormState(register, null)
 
 	return (
-		<div className={cn('grid gap-6', className)} {...props}>
-			<form onSubmit={onSubmit}>
-				<div className='grid gap-2'>
-					<div className='grid gap-1'>
-						<Label className='sr-only' htmlFor='email'>
-							Email
-						</Label>
-						<Input
-							id='email'
-							placeholder='name@example.com'
-							type='email'
-							autoCapitalize='none'
-							autoComplete='email'
-							autoCorrect='off'
-							disabled={isLoading}
-						/>
-					</div>
-					<Button disabled={isLoading}>
-						{isLoading && <Loader2Icon className='mr-2 h-4 w-4 animate-spin' />}
-						Sign In with Email
-					</Button>
+		<div className='grid gap-6'>
+			<form action={action}>
+				<div className='grid gap-y-4 gap-x-2 grid-cols-2'>
+					<FormInput label='First name' name='firstName' placeholder='Max' error={state?.errors.firstName} />
+					<FormInput label='Last name' name='lastName' placeholder='Robinson' error={state?.errors.lastName} />
+					<FormInput
+						className='col-span-full'
+						label='Email address'
+						name='email'
+						placeholder='name@example.com'
+						type='email'
+						error={state?.errors.email}
+					/>
+					<FormInput label='Password' name='password' type='password' error={state?.errors.password} />
+					<FormInput label='Confirm password' name='confirmPassword' type='password' error={state?.errors.confirmPassword} />
+					<ActionButton className='col-span-full'>Sign In with Email</ActionButton>
 				</div>
 			</form>
 			<div className='relative'>
@@ -55,13 +36,14 @@ export function ClientPage({ className, ...props }: UserAuthFormProps) {
 				</div>
 			</div>
 			<div className='grid gap-2'>
-				<Button variant='outline' type='button' disabled={isLoading}>
-					{/* TODO: Real google icon */}
+				{/* TODO: Google sign in */}
+				{/* <Button variant='outline' type='button' disabled={isLoading}>
 					{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <ChromeIcon className='mr-2 h-4 w-4' />} Google
-				</Button>
-				<Button variant='outline' type='button' disabled={isLoading}>
+				</Button> */}
+				{/* TODO: GitHub sign in */}
+				{/* <Button variant='outline' type='button' disabled={isLoading}>
 					{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <GitHubLogoIcon className='mr-2 h-4 w-4' />} GitHub
-				</Button>
+				</Button> */}
 			</div>
 		</div>
 	)
