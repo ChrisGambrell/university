@@ -1,10 +1,7 @@
 import authFeature from '@/assets/auth-feature.jpg'
-import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 import { LayoutProps } from '@cgambrell/utils'
 import { CommandIcon } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 // TODO: Real testimonial
 const testimonial = {
@@ -15,11 +12,6 @@ const testimonial = {
 export default function AuthLayout({ children }: LayoutProps) {
 	return (
 		<div className='relative flex-col items-center justify-center grid lg:max-w-none lg:h-screen lg:grid-cols-2 lg:px-0'>
-			<Link
-				className={cn(buttonVariants({ variant: 'ghost' }), 'absolute right-4 top-4 md:right-8 md:top-8')}
-				href='/examples/authentication'>
-				Login
-			</Link>
 			<div className='relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex'>
 				<div className='absolute inset-0'>
 					<Image className='w-full h-full object-cover' src={authFeature} alt='auth-feature' />
