@@ -4,6 +4,9 @@ import localFont from 'next/font/local'
 import { Suspense } from 'react'
 import './globals.css'
 
+// Import to verify environment variables are set
+import '@/lib/env'
+
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
 	variable: '--font-geist-sans',
