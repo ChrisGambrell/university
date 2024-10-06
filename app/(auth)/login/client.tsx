@@ -24,11 +24,9 @@ export function ClientPage() {
 			</div>
 
 			<div className='grid gap-2'>
-				{/* TODO: Google sign in */}
-				{/* <Button variant='outline'>
-					<ChromeIcon className='mr-2 h-4 w-4' />
-					<span>Google</span>
-				</Button> */}
+				<ActionButton formAction={oauth.bind(null, 'google')} variant='outline'>
+					Login with Google
+				</ActionButton>
 				<ActionButton formAction={oauth.bind(null, 'github')} variant='outline'>
 					Login with Github
 				</ActionButton>

@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs'
 import NextAuth, { NextAuthConfig } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import Github from 'next-auth/providers/github'
+import Google from 'next-auth/providers/google'
 import Resend from 'next-auth/providers/resend'
 import prisma from './db'
 import { env } from './env'
@@ -39,6 +40,7 @@ export const authConfig = {
 			},
 		}),
 		Github({ allowDangerousEmailAccountLinking: true }),
+		Google({ allowDangerousEmailAccountLinking: true }),
 		Resend({ from: env.AUTH_RESEND_EMAIL }),
 	],
 	session: { strategy: 'jwt' },
