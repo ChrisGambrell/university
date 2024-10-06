@@ -1,6 +1,6 @@
 import authFeature from '@/assets/auth-feature.jpg'
+import { APP_ICON, APP_NAME } from '@/lib/utils'
 import { LayoutProps } from '@cgambrell/utils'
-import { CommandIcon } from 'lucide-react'
 import Image from 'next/image'
 
 // TODO: Real testimonial
@@ -17,10 +17,8 @@ export default function AuthLayout({ children }: LayoutProps) {
 					<Image className='w-full h-full object-cover' src={authFeature} alt='auth-feature' />
 				</div>
 				<div className='relative z-20 flex items-center text-lg font-medium'>
-					{/* TODO: Correct icon */}
-					<CommandIcon className='mr-2 h-6 w-6' />
-					{/* TODO: Correct app name */}
-					<span>Acme Inc</span>
+					<APP_ICON className='mr-2 h-6 w-6' />
+					<span>{APP_NAME}</span>
 				</div>
 				<div className='relative z-20 mt-auto'>
 					<blockquote className='space-y-2'>

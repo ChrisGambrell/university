@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { APP_ICON, APP_NAME } from '@/lib/utils'
 import { LayoutProps } from '@cgambrell/utils'
-import { BellIcon, CommandIcon } from 'lucide-react'
+import { BellIcon } from 'lucide-react'
 import Link from 'next/link'
 import { MobileNav } from './components/mobile-nav'
 import { NavSearch } from './components/nav-search'
@@ -15,10 +16,8 @@ export default function ProtectedLayout({ children }: LayoutProps) {
 				<div className='flex h-full max-h-screen flex-col gap-2'>
 					<div className='flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6'>
 						<Link href='/' className='flex items-center gap-2 font-semibold'>
-							{/* TODO: Correct logo & app name */}
-							<CommandIcon className='h-6 w-6' />
-							{/* TODO: Correct logo & app name */}
-							<span className=''>Acme Inc</span>
+							<APP_ICON className='h-6 w-6' />
+							<span className=''>{APP_NAME}</span>
 						</Link>
 						<Button variant='outline' size='icon' className='ml-auto h-8 w-8'>
 							<BellIcon className='h-4 w-4' />

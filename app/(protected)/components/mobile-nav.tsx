@@ -2,8 +2,8 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { cn } from '@/lib/utils'
-import { CommandIcon, MenuIcon } from 'lucide-react'
+import { APP_ICON, APP_NAME, cn } from '@/lib/utils'
+import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
 import { navLinks } from './links'
 
@@ -19,8 +19,8 @@ export function MobileNav() {
 			<SheetContent side='left' className='flex flex-col'>
 				<nav className='grid gap-2 text-lg font-medium'>
 					<Link href='#' className='flex items-center gap-2 text-lg font-semibold'>
-						<CommandIcon className='h-6 w-6' />
-						<span className='sr-only'>Acme Inc</span>
+						<APP_ICON className='h-6 w-6' />
+						<span className='sr-only'>{APP_NAME}</span>
 					</Link>
 					{navLinks.map((link) => (
 						<Link
