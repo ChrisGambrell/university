@@ -25,7 +25,7 @@ const upsertProductRecord = async (product: Stripe.Product) => {
 const upsertPriceRecord = async (price: Stripe.Price) => {
 	const priceData: Prisma.PriceCreateInput = {
 		id: price.id,
-		product: { connect: { id: price.product as string } },
+		product: { connect: { id: typeof price.product === 'string' ? price.product : '' } },
 		active: price.active,
 		currency: price.currency,
 		type: price.type,
