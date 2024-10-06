@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import { ClientPage } from './client'
 
-// TODO: Be able to access this page
 export default function ForgotPage() {
 	return (
 		<>

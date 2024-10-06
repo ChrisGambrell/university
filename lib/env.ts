@@ -1,7 +1,6 @@
 import { createEnv } from '@t3-oss/env-nextjs'
 import { z } from 'zod'
 
-// TODO: Add host url for @cgambrell stuff
 export const env = createEnv({
 	server: {
 		AUTH_SECRET: z.string().min(1),
@@ -17,15 +16,23 @@ export const env = createEnv({
 
 		DATABASE_URL: z.string().url(),
 	},
-	client: {},
+	client: {
+		NEXT_PUBLIC_SITE_URL: z.string().url(),
+	},
 	runtimeEnv: {
 		AUTH_SECRET: process.env.AUTH_SECRET,
+
 		AUTH_GITHUB_ID: process.env.AUTH_GITHUB_ID,
 		AUTH_GITHUB_SECRET: process.env.AUTH_GITHUB_SECRET,
+
 		AUTH_GOOGLE_ID: process.env.AUTH_GOOGLE_ID,
 		AUTH_GOOGLE_SECRET: process.env.AUTH_GOOGLE_SECRET,
+
 		AUTH_RESEND_KEY: process.env.AUTH_RESEND_KEY,
 		AUTH_RESEND_EMAIL: process.env.AUTH_RESEND_EMAIL,
+
 		DATABASE_URL: process.env.DATABASE_URL,
+
+		NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
 	},
 })
