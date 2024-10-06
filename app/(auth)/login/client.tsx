@@ -3,6 +3,8 @@
 import { login } from '@/actions/auth'
 import { ActionButton } from '@/components/action-button'
 import { FormInput } from '@/components/form-input'
+import { Button } from '@/components/ui/button'
+import { ChromeIcon, GithubIcon } from 'lucide-react'
 import { useFormState } from 'react-dom'
 
 export function ClientPage() {
@@ -25,12 +27,14 @@ export function ClientPage() {
 			</div>
 			<div className='grid gap-2'>
 				{/* TODO: Google sign in */}
-				{/* <Button variant='outline' type='button' disabled={isLoading}>
-					{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <ChromeIcon className='mr-2 h-4 w-4' />} Google
+				{/* <Button variant='outline'>
+					<ChromeIcon className='mr-2 h-4 w-4' />
+					<span>Google</span>
 				</Button> */}
 				{/* TODO: GitHub sign in */}
-				{/* <Button variant='outline' type='button' disabled={isLoading}>
-					{isLoading ? <Loader2Icon className='mr-2 h-4 w-4 animate-spin' /> : <GitHubLogoIcon className='mr-2 h-4 w-4' />} GitHub
+				{/* <Button variant='outline'>
+					<GithubIcon className='mr-2 h-4 w-4' />
+					<span>GitHub</span>
 				</Button> */}
 			</div>
 		</div>

@@ -16,6 +16,13 @@ export default function LoginPage() {
 				</div>
 				<ClientPage />
 				<p className='px-8 text-center text-sm text-muted-foreground'>
+					Forgot your password?{' '}
+					<Link className='underline underline-offset-4 hover:text-primary' href='/forgot'>
+						Get help
+					</Link>
+					.
+				</p>
+				<p className='px-8 text-center text-sm text-muted-foreground'>
 					By clicking continue, you agree to our{' '}
 					<Link className='underline underline-offset-4 hover:text-primary' href='/terms'>
 						Terms of Service

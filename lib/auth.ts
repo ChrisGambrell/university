@@ -13,7 +13,6 @@ export const authConfig = {
 		authorized: ({ auth, request: { nextUrl } }) => {
 			const isAuthed = !!auth?.user
 			const isAuthRoute =
-				// TODO: Forgot page
 				nextUrl.pathname.startsWith('/login') || nextUrl.pathname.startsWith('/register') || nextUrl.pathname.startsWith('/forgot')
 
 			if (!isAuthRoute) {
