@@ -5,6 +5,7 @@ import NextAuth, { NextAuthConfig } from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import Resend from 'next-auth/providers/resend'
 import prisma from './db'
+import { env } from './env'
 
 export const authConfig = {
 	adapter: PrismaAdapter(prisma),
@@ -37,7 +38,7 @@ export const authConfig = {
 				return user
 			},
 		}),
-		Resend({ from: 'noreply@example.com' }),
+		Resend({ from: env.AUTH_RESEND_EMAIL }),
 	],
 	session: { strategy: 'jwt' },
 } satisfies NextAuthConfig

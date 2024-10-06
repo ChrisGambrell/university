@@ -42,7 +42,6 @@ export async function register(_prevState: unknown, formData: FormData) {
 	redirect(getSuccessRedirect('/login', 'Account created, please login'))
 }
 
-// BUG: Not working
 export async function verifyEmail(_prevState: unknown, formData: FormData) {
 	const { data, errors } = parseFormData(formData, verifyEmailSchema)
 	if (errors) return { errors }
